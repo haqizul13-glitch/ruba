@@ -2234,3 +2234,179 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================
+   FLOATING NAVBAR (Premium)
+   - navbar melayang (tidak nempel atas)
+   - tidak mengubah HTML & tidak ganggu SPA
+========================= */
+
+/* 1) jadikan wrapper fixed tapi transparan */
+.top-nav {
+    position: fixed;
+    top: 16px;
+    /* jarak dari atas (melayang) */
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: transparent;
+    /* supaya tidak bikin bar solid */
+    border-bottom: none;
+    /* hilangkan garis bawah sticky lama */
+    backdrop-filter: none;
+}
+
+/* 2) kotak navbar yang “floating” ada di .nav-inner */
+.top-nav .nav-inner {
+    background: var(--surface);
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    /* pill premium */
+    box-shadow: var(--shadow-md);
+    padding: 12px 14px;
+    /* biar lebih “nafas” */
+}
+
+/* 3) biar container navbar tidak “nempel” pinggir */
+.top-nav .container {
+    width: min(var(--container), calc(100% - 44px));
+}
+
+/* 4) kasih ruang atas supaya konten tidak ketutup navbar */
+.page-shell {
+    padding-top: 88px;
+    /* sesuaikan jika navbar lebih tinggi */
+}
+
+/* mobile: jarak & tinggi lebih kecil */
+@media (max-width: 520px) {
+    .top-nav {
+        top: 10px;
+    }
+
+    .top-nav .nav-inner {
+        border-radius: 20px;
+        /* di mobile jangan terlalu pill */
+        padding: 10px 10px;
+    }
+
+    .page-shell {
+        padding-top: 78px;
+    }
+}
+
+/* =========================
+   SPLASH / LOGO ANIMATION
+========================= */
+
+#splash {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background:
+        radial-gradient(1200px 400px at 50% 0%, rgba(37, 99, 235, 0.10), transparent 60%),
+        var(--surface-solid);
+    display: grid;
+    place-items: center;
+    transition: opacity .45s ease, visibility .45s ease;
+}
+
+#splash.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-inner {
+    text-align: center;
+    animation: splashFade .9s ease forwards;
+}
+
+.splash-logo {
+    width: 92px;
+    height: 92px;
+    border-radius: 28px;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(120px 60px at 20% 0%, rgba(255, 255, 255, .35), transparent 60%),
+        linear-gradient(180deg, #2563eb, #1e40af);
+    box-shadow:
+        0 30px 60px rgba(37, 99, 235, .35),
+        inset 0 1px 0 rgba(255, 255, 255, .35);
+    animation: logoPop .9s cubic-bezier(.2, .9, .2, 1) forwards;
+}
+
+.logo-mark {
+    font-size: 44px;
+    font-weight: 1000;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.splash-text {
+    margin-top: 14px;
+    font-size: 18px;
+    font-weight: 1000;
+    letter-spacing: -.3px;
+    color: var(--text);
+    opacity: 0;
+    animation: textFade .6s ease forwards;
+    animation-delay: .45s;
+}
+
+
+
+/* Animations */
+@keyframes logoPop {
+    0% {
+        transform: scale(.6);
+        opacity: 0;
+        filter: blur(6px);
+    }
+
+    60% {
+        transform: scale(1.06);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes splashFade {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes textFade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile: sedikit lebih kecil */
+@media (max-width: 520px) {
+    .splash-logo {
+        width: 78px;
+        height: 78px;
+        border-radius: 22px;
+    }
+
+    .logo-mark {
+        font-size: 38px;
+    }
+}

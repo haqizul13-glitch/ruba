@@ -48,6 +48,27 @@
         };
     };
 
+
+
+
+    // Splash / logo animation (run once on first load)
+    window.addEventListener("load", () => {
+        const splash = document.getElementById("splash");
+        if (!splash) return;
+
+        // durasi tampil
+        setTimeout(() => {
+            splash.classList.add("hide");
+        }, 3500);
+    });
+
+    if (!sessionStorage.getItem("splashShown")) {
+        sessionStorage.setItem("splashShown", "1");
+    } else {
+        document.getElementById("splash")?.remove();
+    }
+
+
     // -------------------------
     // Storage (safe)
     // -------------------------
