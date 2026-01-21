@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Nuqthah Learn</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <div class="grain"></div>
+  <div class="app" id="app">
+    <!-- =========================
+         TOP NAV (SPA)
+    ========================= -->
+    <div class="top-nav">
+      <div class="container">
+        <div class="nav-inner">
+          <div aria-label="Kembali ke Beranda" class="brand" data-go="home" role="button" tabindex="0">
+            <div class="brand-mark">M</div>
+            <div class="brand-text">
+              <strong>Masisir</strong>
+              <span>SIAP • belajar lebih mudah dan fokus. </span>
+            </div>
+          </div>
+          <div class="nav-actions">
+            <button aria-label="Buka Explore" class="btn btn-soft" data-go="explore" type="button">
+              🔎 <span>Cari Materi</span> <span class="kbd">E</span>
+            </button>
+            <button aria-label="Buka Tips Fokus" class="btn btn-soft" data-go="tips" type="button">
+              🎯 <span>Tips Fokus</span> <span class="kbd">T</span>
+            </button>
+            <button aria-label="Mulai Belajar" class="btn btn-primary" data-go="belajar" type="button">
+              ✍️ <span>Mulai Belajar</span> <span class="kbd">L</span>
+            </button>
+            <button aria-label="Toggle Dark Mode" class="btn btn-icon" id="darkToggle" title="Dark Mode" type="button">
+              🌙
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- =========================
+         ROUTES (SPA)
+    ========================= -->
+    <main class="page-shell">
+      <!-- ROUTE: HOME -->
+      <section class="route active enter" id="route-home" data-route="home">
+
+        <header>
+          <div class="container">
+            <div class="hero">
+              <div class="hero-card">
+                <div class="hero-top">
+                  <div class="hero-title">
+                    <h1>Platform pembelajaran paling mudah di akses masisir</h1>
+                    <p>
+                      Jelajahi materi dengan filter cepat, semua punya kesempatan untuk belajar
+                      lebih mudah dengan MASISIR.
+                    </p>
+                  </div>
+                  <div class="pill">⚡ Mari Maju Bersama Masisir</div>
+                </div>
+                <div class="hero-cta">
+                  <button class="btn btn-primary" data-go="belajar" type="button">Mulai
+                    Belajar</button>
+                  <button class="btn btn-soft" data-go="explore" type="button">Explore Materi</button>
+                  <button class="btn" data-go="tips" type="button">Tips Fokus</button>
+                  <span class="kbd" title="Shortcut">/ Search</span>
+                </div>
+                <div class="hero-stats">
+                  <div class="stat">
+                    <b id="statTotal">—</b>
+                    <span>Total materi</span>
+                  </div>
+                  <div class="stat">
+                    <b id="statProgress">—</b>
+                    <span>Progres kamu</span>
+                  </div>
+                  <div class="stat">
+                    <b id="statStreak">—</b>
+                    <span>Streak belajar</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-side">
+                <div class="mini-card">
+                  <h3>Filter cepat 🚀</h3>
+                  <p>Gunakan fitur filter cepat untuk mencari materimu lebih mudah. Materi akan muncul
+                    jika tersedia di sini,
+                    selamat belajar🎉
+                  </p>
+                  <div class="mini-row" id="homeQuickChips"></div>
+                </div>
+                <div class="mini-card">
+                  <h3>Mode belajar fokus ✍️</h3>
+                  <p>gunakan catatan dan fitur progress untuk menghitung capaian belajar kamu.
+                    mulai berprogres bersama masisir untuk lebih maju.</p>
+                  <div class="mini-row">
+                    <span class="chip" data-go="belajar">Buka Mode Fokus</span>
+                    <span class="chip" data-go="tips">Ritual Fokus</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- Featured slider -->
+        <section class="section" style="display:none">
+          <div class="container">
+            <div class="section-title">Pilihan materi 🔥</div>
+            <div class="slider-wrap">
+              <div aria-label="Slider materi unggulan" class="slider" id="featuredSlider"></div>
+              <div aria-label="Navigasi slider" class="dots" id="sliderDots"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feature split (Desktop image + side content) -->
+        <section class="section feature-split">
+          <div class="container">
+            <div class="feature-split__card">
+              <!-- Media (DESKTOP ONLY) -->
+              <div class="feature-split__media" aria-hidden="true">
+                <img src="assets/images/slide-1.jpg" alt="Kegiatan Ma'had Al-Azhar" loading="lazy" decoding="async" />
+              </div>
+
+              <!-- Content -->
+              <div class="feature-split__content">
+                <div class="feature-split__kicker">Program Unggulan</div>
+
+                <h2 class="feature-split__title">Ma'had Al-Azhar (SMP–SMA)</h2>
+                <p class="feature-split__desc">
+                  Jalur pendidikan formal setingkat SMP–SMA langsung di Kairo, didukung penuh sistem asrama berbasis
+                  pondok pesantren untuk memastikan pembinaan akademik, spiritual, dan kemandirian yang intensif.
+                </p>
+
+                <ul class="feature-split__list">
+                  <li><span class="feature-split__icon">🛡️</span> Sistem Asrama Terbina</li>
+                  <li><span class="feature-split__icon">🎓</span> Jalur Prioritas ke Universitas</li>
+                  <li><span class="feature-split__icon">🌍</span> Ijazah Berstandar Internasional</li>
+                </ul>
+
+                <div class="feature-split__actions">
+                  <!-- Pakai data-go biar mengikuti router SPA yang sudah ada -->
+                  <button class="btn btn-primary" type="button" data-go="explore">Selengkapnya</button>
+                  <button class="btn btn-soft" type="button" data-go="belajar">Mulai Belajar</button>
+                </div>
+
+                <div class="feature-split__note">
+                  Tips: klik “Mulai Belajar” untuk masuk Mode Fokus.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- foto 2 -->
+        <!-- Feature split REVERSE (content left, image right) -->
+        <section class="section feature-split feature-split--reverse">
+          <div class="container">
+            <div class="feature-split__card feature-split__card--alt">
+              <!-- CONTENT (LEFT) -->
+              <div class="feature-split__content">
+                <div class="feature-split__kicker feature-split__kicker--alt">Program Spesial</div>
+
+                <h2 class="feature-split__title">
+                  Persiapan Studi Timur Tengah
+                  <span class="feature-split__title-accent">lebih terarah</span>
+                </h2>
+
+                <p class="feature-split__desc">
+                  Pendampingan akademik dan pembinaan karakter yang rapi, agar proses belajar lebih konsisten
+                  dan progres terasa jelas dari minggu ke minggu.
+                </p>
+
+                <div class="feature-split__bullets feature-split__bullets--alt">
+                  <div class="fs-bullet">
+                    <span class="fs-bullet__ico" aria-hidden="true">📌</span>
+                    <div class="fs-bullet__text">
+                      <b>Rencana Belajar Bertahap</b>
+                      <small>Mulai dari dasar → latihan → evaluasi.</small>
+                    </div>
+                  </div>
+
+                  <div class="fs-bullet">
+                    <span class="fs-bullet__ico" aria-hidden="true">🧭</span>
+                    <div class="fs-bullet__text">
+                      <b>Panduan & Monitoring</b>
+                      <small>Catatan, progres, dan target mingguan.</small>
+                    </div>
+                  </div>
+
+                  <div class="fs-bullet">
+                    <span class="fs-bullet__ico" aria-hidden="true">⚡</span>
+                    <div class="fs-bullet__text">
+                      <b>Mode Fokus</b>
+                      <small>Belajar tanpa distraksi, tetap ringan.</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feature-split__actions">
+                  <button class="btn btn-primary" type="button" data-go="explore">Selengkapnya</button>
+                  <button class="btn btn-soft" type="button" data-go="belajar">Mulai Belajar</button>
+                </div>
+
+                <div class="feature-split__note">
+                  Tips: klik “Mulai Belajar” untuk masuk Mode Fokus.
+                </div>
+              </div>
+
+              <!-- IMAGE (RIGHT / DESKTOP ONLY) -->
+              <div class="feature-split__media feature-split__media--alt" aria-hidden="true">
+                <img class="desktop-only" src="assets/images/program-studi.jpg" alt="Program studi" loading="lazy"
+                  decoding="async" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- CTA / Register -->
+        <section class="section">
+          <div class="container">
+            <div class="register-panel">
+              <h2>Siap serius belajar hari ini?</h2>
+              <p>Mulai dari materi ringan → lanjut ke fokus mode. Progres kamu aman tersimpan.</p>
+              <button class="primary-btn" data-go="belajar" type="button">Mulai Belajar Sekarang</button>
+              <div class="sub-note">Tip: hover slider untuk pause auto-scroll 🧊</div>
+            </div>
+          </div>
+        </section>
+        <footer class="container">© <span id="year"></span> Nuqthah Learning center — Darosah-Gamaliyah • Cairo
+          Mesir
+        </footer>
+      </section>
+      <!-- ROUTE: EXPLORE -->
+      <section class="route" data-route="explore" id="route-explore">
+        <section class="section">
+          <div class="container">
+            <div class="section-title">Cari Materi 🔎</div>
+            <div class="toolbar">
+              <div class="search">
+                <div class="icon">🔎</div>
+                <input autocomplete="off" id="searchInput"
+                  placeholder="Cari materi… (contoh: grammar, speaking, TOEFL, dll)" type="text" />
+                <button aria-label="Hapus pencarian" class="clear" id="clearSearch" type="button">×</button>
+              </div>
+              <div class="toolbar-right">
+                <button class="btn" id="resetFilters" type="button">Reset</button>
+                <button class="btn btn-primary" data-go="belajar" type="button">Mode Fokus</button>
+              </div>
+            </div>
+            <div class="mini-row" id="categoryChips"></div>
+            <div aria-label="Daftar materi" class="card-grid" id="classGrid"></div>
+            <div class="card-grid" id="skeletonGrid" style="display:none;"></div>
+            <footer class="container" style="padding-top:18px;">Tip: klik kartu untuk preview via modal
+              (nggak langsung
+              buka link).</footer>
+          </div>
+        </section>
+      </section>
+      <!-- ROUTE: TIPS -->
+      <section class="route" data-route="tips" id="route-tips">
+        <section class="section">
+          <div class="container">
+            <div class="section-title">Tips Fokus 🎯</div>
+            <div class="card-grid">
+              <div class="class-card elite" tabindex="0">
+                <div class="badge premium">FOCUS</div>
+                <h3>Ritual 7 Menit Sebelum Belajar</h3>
+                <p>Rapihin meja → set target kecil → matiin notif → minum air → buka materi. Biar otak
+                  “masuk mode”.</p>
+                <div class="meta">🧠 Fokus • ⚡ Cepat • ✅ Konsisten</div>
+              </div>
+              <div class="class-card" tabindex="0">
+                <div class="badge new">TIP</div>
+                <h3>Teknik 25/5 (Pomodoro)</h3>
+                <p>25 menit fokus, 5 menit istirahat. Ulang 3–4 ronde. Setelah itu break lebih panjang.
+                </p>
+                <div class="meta">⏱️ Waktu • 🎯 Fokus • 🔁 Ulang</div>
+              </div>
+              <div class="class-card" tabindex="0">
+                <div class="badge popular">PRO</div>
+                <h3>Belajar “kecil tapi tiap hari”</h3>
+                <p>Lebih menang daripada nunggu mood. Target 10–15 menit pun sah, yang penting rutin.
+                </p>
+                <div class="meta">📆 Konsisten • 📌 Ringan • 🔥 Streak</div>
+              </div>
+              <div class="class-card" tabindex="0">
+                <div class="badge new">ANTI-DRIFT</div>
+                <h3>Kalau mulai terdistraksi…</h3>
+                <p>Tulis gangguan di catatan (parking lot), balik ke materi. Otak tenang karena “nggak
+                  lupa”.</p>
+                <div class="meta">📝 Catatan • 🧊 Tenang • 🎧 Flow</div>
+              </div>
+            </div>
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-primary" data-go="belajar" type="button">Praktek di Fokus
+                Mode</button>
+              <button class="btn" data-go="explore" type="button">Cari Materi</button>
+              <button class="btn btn-soft" id="tipsToast" type="button">Ingatkan saya</button>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!-- ROUTE: BELAJAR (Focus Mode) -->
+      <section class="route" data-route="belajar" id="route-belajar">
+        <section class="learn-shell">
+          <div class="container">
+            <div class="learn-head">
+              <div>
+                <h2>Belajar — Mode Focus ✨</h2>
+                <p>Belajar kamu menjadi lebih produktif dan terarah bersama masisir, tandai selesai jika
+                  kamu sudah menyelesaikan materimu.</p>
+              </div>
+              <div aria-label="Progres belajar" class="progress">
+                <div aria-label="Progress bar" class="bar"><i id="progressFill"></i></div>
+                <span class="muted" id="progressText">0% selesai</span>
+                <button class="btn" id="markDone" type="button">Tandai Selesai</button>
+                <button class="btn btn-soft" id="resetProgress" type="button">Reset Progres</button>
+              </div>
+            </div>
+            <div class="learn-layout">
+              <!-- Sidebar -->
+              <aside aria-label="Daftar pelajaran" class="panel">
+                <div class="panel-hd">
+                  <strong>Materi</strong>
+                  <span class="small" id="lessonCount">0 item</span>
+                </div>
+                <div class="lesson-list" id="lessonList"></div>
+              </aside>
+              <!-- Main -->
+              <div class="learn-main">
+                <section aria-label="Viewer materi" class="viewer">
+                  <div class="viewer-hd">
+                    <div class="title">
+                      <strong id="viewerTitle">Pilih materi dulu</strong>
+                      <span id="viewerMeta">Preview aman di dalam viewer</span>
+                    </div>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                      <button class="btn" id="openPreviewModal" type="button">Preview
+                        Modal</button>
+                      <button class="btn btn-primary" id="openExternal" type="button">Buka
+                        Sumber</button>
+                    </div>
+                  </div>
+                  <div class="viewer-body">
+                    <div class="viewer-empty" id="viewerEmpty">
+                      <div>
+                        <div style="font-size:16px; font-weight:1000;">📚 Pilih materi dari
+                          sidebar</div>
+                        <div class="muted" style="margin-top:6px;">Nanti viewer &amp; catatan
+                          otomatis ikut.</div>
+                      </div>
+                    </div>
+                    <iframe id="viewerFrame" loading="lazy" referrerpolicy="no-referrer" title="Viewer Materi"></iframe>
+                  </div>
+                </section>
+                <section aria-label="Catatan" class="notes">
+                  <div class="panel-hd">
+                    <strong>Catatan kamu</strong>
+                    <span class="small" id="notesStatus">Auto-save</span>
+                  </div>
+                  <textarea id="notesArea"
+                    placeholder="Tulis poin penting, ringkasan, atau pertanyaan kamu di sini…"></textarea>
+                </section>
+              </div>
+            </div>
+            <footer class="container" style="padding-top:16px;">
+              Tip: gunakan keyboard — <span class="kbd">E</span> Explore, <span class="kbd">T</span> Tips,
+              <span class="kbd">L</span> Belajar, <span class="kbd">/</span> Fokus ke search.
+            </footer>
+          </div>
+        </section>
+      </section>
+    </main>
+    <!-- =========================
+         MODAL (Preview)
+    ========================= -->
+    <div aria-hidden="true" class="modal-overlay" id="modalOverlay">
+      <div aria-labelledby="modalTitle" aria-modal="true" class="modal" role="dialog">
+        <div class="modal-header">
+          <div class="modal-title">
+            <strong id="modalTitle">Preview Materi</strong>
+            <span id="modalSubtitle">Cek dulu sebelum buka link</span>
+          </div>
+          <button aria-label="Tutup" class="modal-close" id="modalClose" type="button">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="preview" id="modalPreview">
+            <div class="ph" id="modalPlaceholder">Loading preview…</div>
+
+            <!-- Preview FOTO (akan dipakai jika ada previewImage) -->
+            <img id="modalImage" alt="" loading="lazy" decoding="async" />
+
+            <!-- Preview IFRAME (tetap dipakai untuk link) -->
+            <iframe id="modalFrame" loading="lazy" referrerpolicy="no-referrer" title="Preview"></iframe>
+          </div>
+
+          <div class="modal-info">
+            <div class="info-row">
+              <strong style="font-size:13px; font-weight:1000;">Tentang materi</strong>
+              <p id="modalDesc">—</p>
+            </div>
+            <div class="info-badges" id="modalBadges"></div>
+            <div class="info-row">
+              <p class="muted" id="modalNote">Tip: gunakan preview ini untuk memastikan konten sesuai.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn" id="modalCancel" type="button">Tutup</button>
+          <button class="btn btn-primary" id="modalUseInFocus" type="button">
+            Daftar
+          </button>
+          <button class="btn btn-soft" id="modalOpenExternal" type="button">Buka materi
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- =========================
+         TOAST
+    ========================= -->
+    <div aria-live="polite" class="toast" id="toast" role="status">
+      <div class="dotty"></div>
+      <div>
+        <strong id="toastTitle">Berhasil</strong>
+        <span id="toastMsg">—</span>
+      </div>
+      <button aria-label="Tutup toast" id="toastClose" type="button">×</button>
+    </div>
+  </div>
+
+  <script src="assets/app.js" defer></script>
+</body>
+
+</html>
